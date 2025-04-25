@@ -90,11 +90,19 @@
       studentObj.birthday = new Date(studentObj.birthday);
     }
 
-    let currentYear = new Date().getFullYear();
-    let studentAge = currentYear - studentObj.birthday.getFullYear();
+    const today = new Date();
+    let age = today.getFullYear() - studentObj.birthday.getFullYear();
 
-    return studentAge;
-  };
+    const isBirthdayPassed =
+      today.getMonth() > studentObj.birthday.getMonth() ||
+      (today.getMonth() === studentObj.birthday.getMonth() && today.getDate() >= studentObj.birthday.getDate());
+
+    if (!isBirthdayPassed) {
+      age -= 1;
+    }
+
+    return age;
+  }
 
   function calculateStudyFinal(studentObj) {
     return Number(studentObj.studyStart) + 4;

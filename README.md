@@ -1,29 +1,71 @@
-# Student Management App
+# Students List
 
-## Описание
-Это приложение для управления студентами, которое позволяет добавлять, сортировать и фильтровать студентов. Оно предоставляет удобный интерфейс для работы с данными студентов и отображает их в виде таблицы.
+## Description
+This is a student management application called **Students List**. It allows you to add, delete, sort, and filter students. The application provides a user-friendly interface for managing student data and displays it in a table format.
 
-## Установка
-1. Клонируйте репозиторий:
+## Installation
+
+### Frontend Setup
+1. Clone the repository:
+   ```sh
+   git clone https://git@github.com:kate8382/students_list.git
    ```
-   git clone https://github.com/ваш_логин/student-management-app.git
+2. Navigate to the project directory:
+   ```sh
+   cd students_list
    ```
-2. Перейдите в директорию проекта:
-   ```
-   cd student-management-app
-   ```
-3. Установите зависимости:
-   ```
+3. Install dependencies:
+   ```sh
    npm install
    ```
 
-## Использование
-1. Откройте файл `index.html` в вашем браузере.
-2. Используйте форму для добавления новых студентов.
-3. Сортируйте и фильтруйте список студентов по различным критериям.
+### Backend Setup
+1. Navigate to the `backend` directory:
+   ```sh
+   cd backend
+   ```
+2. Install the dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the server using npm:
+   ```sh
+   npm start
+   ```
+   Alternatively, you can start the server using Node.js directly:
+   ```sh
+   node index.js
+   ```
 
-## Вклад
-Если вы хотите внести свой вклад в проект, пожалуйста, создайте форк репозитория, внесите изменения и отправьте пулл-реквест.
+## Usage
+1. Open the `index.html` file in your browser.
+2. Use the form to add new students.
+3. Sort and filter the student list by various criteria.
+4. Delete students from the table.
 
-## Лицензия
-Этот проект лицензирован под лицензией MIT. См. файл [LICENSE](LICENSE) для получения дополнительной информации.
+## Screenshots
+Here are some screenshots of the application:
+
+![Screenshot 1](screenshots/image1.png)
+![Screenshot 2](screenshots/image2.png)
+![Screenshot 3](screenshots/image3.png)
+
+## Contributing
+If you would like to contribute to this project, please follow these steps:
+1. Fork the repository.
+2. Create a new branch:
+   ```sh
+   git checkout -b feature-branch
+   ```
+3. Make your changes and commit them:
+   ```sh
+   git commit -m "Add new feature"
+   ```
+4. Push to the branch:
+   ```sh
+   git push origin feature-branch
+   ```
+5. Create a new Pull Request.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

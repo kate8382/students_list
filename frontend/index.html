@@ -57,31 +57,41 @@
       </form>
     </div>
 
-    <div class="mb-4">
-      <h2 class="mb-4">Упорядочить список студентов по:</h2>
-      <div class="d-flex justify-content-start gap-5">
-        <button class="btn btn-primary" id="sort__fio">ФИО (А-Я&nbsp;/ Я-А)</button>
-        <button class="btn btn-primary" id="sort__birth">Году рождения (&darr;&nbsp;/ &uarr;)</button>
-        <button class="btn btn-primary" id="sort__study">Году поступления (&darr;&nbsp;/ &uarr;)</button>
-        <button class="btn btn-primary" id="sort__faculty">Факультету (А-Я&nbsp;/ Я-А)</button>
-      </div>
-    </div>
-
     <table class="table table-bordered table-hover caption-top">
-      <caption class="h2">Список студентов</caption>
-      <thead>
-        <tr>
-          <th>ФИО</th>
-          <th>Дата рождения</th>
-          <th>Год поступления</th>
-          <th>Факультет</th>
-          <th>Удалить студента</th>
-        </tr>
-      </thead>
-      <tbody id="students-list">
+  <caption class="h2">Список студентов</caption>
+  <thead>
+    <tr>
+      <th>
+        <div class="d-flex justify-content-between align-items-center">
+          <span>ФИО</span>
+          <button class="btn btn-primary" id="sort__fio">А-Я&nbsp;/ Я-А</button>
+        </div>
+      </th>
+      <th>
+        <div class="d-flex justify-content-between align-items-center">
+          <span>Дата рождения</span>
+          <button class="btn btn-primary" id="sort__birth">(&darr;&nbsp;/ &uarr;)</button>
+        </div>
+      </th>
+      <th>
+        <div class="d-flex justify-content-between align-items-center">
+          <span>Год поступления</span>
+          <button class="btn btn-primary" id="sort__study">(&darr;&nbsp;/ &uarr;)</button>
+        </div>
+      </th>
+      <th>
+        <div class="d-flex justify-content-between align-items-center">
+          <span>Факультет</span>
+          <button class="btn btn-primary" id="sort__faculty">А-Я&nbsp;/ Я-А</button>
+        </div>
+      </th>
+      <th>Удалить студента</th>
+    </tr>
+  </thead>
+  <tbody id="students-list">
 
-      </tbody>
-    </table>
+  </tbody>
+</table>
   </div>
 </body>
 
