@@ -219,7 +219,7 @@
     if (input.value !== '') {
       return input.value = input.value[0].toUpperCase() + input.value.slice(1);
     }
-  };
+  }
 
   // 3. Рендер
   async function renderStudentsTable(sortProp = null) {
@@ -247,7 +247,7 @@
     }
 
     // Заполняем таблицу
-    for (const student of studentsArray) {
+    for (let student of studentsArray) {
       student.fio = student.surname + ' ' + student.name + ' ' + student.lastname;
       student.birthday = new Date(student.birthday);
       student.studyFinal = Number(student.studyStart + 4);
