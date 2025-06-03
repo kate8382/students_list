@@ -1,7 +1,20 @@
 # Students List
 
 ## Description
-This is a student management application called **Students List**. It allows you to add, delete, sort, and filter students. The application provides a user-friendly interface for managing student data and displays it in a table format.
+This is a student management application called **Students List**. It allows you to add, delete, sort, and filter students. The application provides a user-friendly interface for managing student data and displays it in a table format. This project was also used to practice JavaScript event loop, promises, and asynchronous operations in real-world scenarios.
+
+## Features
+
+- Modular code structure (separated API and UI logic)
+- Asynchronous data loading and updating with `fetch` and `async/await`
+- Global Bootstrap spinner for loading indication
+- User-friendly error alerts (Bootstrap alert)
+- Sorting and filtering students in real time
+
+## Useful Links
+
+- [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [MDN: JavaScript Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 
 ## Installation
 
