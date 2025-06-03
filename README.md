@@ -3,6 +3,8 @@
 ## Description
 This is a student management application called **Students List**. It allows you to add, delete, sort, and filter students. The application provides a user-friendly interface for managing student data and displays it in a table format. This project was also used to practice JavaScript event loop, promises, and asynchronous operations in real-world scenarios.
 
+> ⚠️ **Warning:** Without running the backend server, manipulations on the page such as adding/deleting a student, as well as sorting and filtering the students table, are not possible.
+
 ## Features
 
 - Modular code structure (separated API and UI logic)
@@ -51,10 +53,11 @@ This is a student management application called **Students List**. It allows you
    ```
 
 ## Usage
-1. Open the `index.html` file in your browser.
-2. Use the form to add new students.
-3. Sort and filter the student list by various criteria.
-4. Delete students from the table.
+1. Start the backend server according to the instructions above.
+2. Open the `docs/index.html` file in your browser.
+3. Use the form to add new students.
+4. Sort and filter the list of students by various criteria.
+5. Delete students from the table.
 
 ## Screenshots
 Here are some screenshots of the application:
