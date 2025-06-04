@@ -139,7 +139,6 @@ async function renderStudentTable(sortProp = null, customList = null) {
 
   let studentsArray = [...(customList || studentsList)];
   studentsArray = studentsArray.filter(student => student && student.surname && student.name && student.lastname);
-
   let sortedStudentsArray = [...studentsArray];
   if (sortProp) sortStudentsArray(sortedStudentsArray, sortProp);
   if (studentsArray.length === 0 && studentsList.length === 0) {
@@ -152,7 +151,6 @@ async function renderStudentTable(sortProp = null, customList = null) {
     student.birthday = new Date(student.birthday);
     student.studyFinal = Number(student.studyStart + 4);
   }
-
   if (filterFio.value.trim() !== '') {
     filterFio.value = filterFio.value.replace(/[a-zа-я]+/gi, (match) => match[0].toUpperCase() + match.substr(1));
     studentsArray = filterStudentsArray(studentsArray, 'fio', filterFio.value.trim());

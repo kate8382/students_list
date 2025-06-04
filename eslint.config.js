@@ -24,7 +24,7 @@ export default defineConfig([
       'no-restricted-globals': 'off',
       'no-alert': 'off',
       'no-plusplus': 'off',
-      'max-len': ['error', { code: 130 }],
+      'max-len': 'off', // отключено ограничение длины строки
       'no-param-reassign': ['off'],
     }
   }

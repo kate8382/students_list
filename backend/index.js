@@ -1,12 +1,9 @@
-
-// filepath: c:\Users\User\Desktop\GitHub\student-list_app\backend\index.js
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { createServer } from 'http';
 
 // файл для базы данных
-const DB_FILE = process.env.DB_FILE || './db.json';
-// номер порта, на котором будет запущен сервер
-const PORT = process.env.PORT || 3000;
+const DB_FILE = './db.json';
+const PORT = 3000;
 // префикс URI для всех методов приложения
 const URI_PREFIX = '/api/students';
 
@@ -43,7 +40,8 @@ function drainJson(req) {
  * Проверяет входные данные и создаёт из них корректный объект студента
  * @param {Object} data - Объект с входными данными
  * @throws {ApiError} Некорректные данные в аргументе (statusCode 422)
- * @returns {{ name: string, surname: string, lastname: string, birthday: string, studyStart: string, faculty: string }} Объект студента
+ * @returns {{ name: string, surname: string, lastname: string, birthday: string, studyStart: string,
+ * faculty: string }} Объект студента
  */
 function makeStudentFromData(data) {
   const errors = [];
@@ -80,7 +78,8 @@ function makeStudentFromData(data) {
 /**
  * Возвращает список студентов из базы данных
  * @param {{ search: string }} [params] - Поисковая строка
- * @returns {{ id: string, name: string, surname: string, lastname: string, birthday: string, studyStart: string, faculty: string }[]} Массив студентов
+ * @returns {{ id: string, name: string, surname: string, lastname: string, birthday: string, studyStart: string,
+ * faculty: string }[]} Массив студентов
  */
 function getStudentList(params = {}) {
   const students = JSON.parse(readFileSync(DB_FILE) || '[]');
@@ -104,7 +103,8 @@ function getStudentList(params = {}) {
  * Создаёт и сохраняет студента в базу данных
  * @throws {ApiError} Некорректные данные в аргументе, студент не создан (statusCode 422)
  * @param {Object} data - Данные из тела запроса
- * @returns {{ id: string, name: string, surname: string, lastname: string, birthday: string, studyStart: string, faculty: string, createdAt: string, updatedAt: string }} Объект студента
+ * @returns {{ id: string, name: string, surname: string, lastname: string, birthday: string, studyStart: string,
+ * faculty: string, createdAt: string, updatedAt: string }} Объект студента
  */
 function createStudent(data) {
   const newItem = makeStudentFromData(data);
@@ -118,7 +118,8 @@ function createStudent(data) {
  * Возвращает объект студента по его ID
  * @param {string} itemId - ID студента
  * @throws {ApiError} Студент с таким ID не найден (statusCode 404)
- * @returns {{ id: string, name: string, surname: string, lastname: string, birthday: string, studyStart: string, faculty: string, createdAt: string, updatedAt: string }} Объект студента
+ * @returns {{ id: string, name: string, surname: string, lastname: string, birthday: string, studyStart: string,
+ * faculty: string, createdAt: string, updatedAt: string }} Объект студента
  */
 function getStudent(itemId) {
   const student = getStudentList().find(({ id }) => id === itemId);
@@ -129,10 +130,12 @@ function getStudent(itemId) {
 /**
  * Изменяет студента с указанным ID и сохраняет изменения в базу данных
  * @param {string} itemId - ID изменяемого студента
- * @param {{ name?: string, surname?: string, lastname?: string, birthday?: string, studyStart?: string, faculty?: string }} data - Объект с изменяемыми данными
+ * @param {{ name?: string, surname?: string, lastname?: string, birthday?: string, studyStart?: string,
+ * faculty?: string }} data - Объект с изменяемыми данными
  * @throws {ApiError} Студент с таким ID не найден (statusCode 404)
  * @throws {ApiError} Некорректные данные в аргументе (statusCode 422)
- * @returns {{ id: string, name: string, surname: string, lastname: string, birthday: string, studyStart: string, faculty: string, createdAt: string, updatedAt: string }} Объект студента
+ * @returns {{ id: string, name: string, surname: string, lastname: string, birthday: string, studyStart: string,
+ * faculty: string, createdAt: string, updatedAt: string }} Объект студента
  */
 function updateStudent(itemId, data) {
   const students = getStudentList();
@@ -162,7 +165,7 @@ function deleteStudent(itemId) {
 if (!existsSync(DB_FILE)) writeFileSync(DB_FILE, '[]', { encoding: 'utf8' });
 
 // Экспортируем сервер как default
-export default createServer(async (req, res) => {
+createServer(async (req, res) => {
   // req - объект с информацией о запросе, res - объект для управления отправляемым ответом
 
   // этот заголовок ответа указывает, что тело ответа будет в JSON формате
@@ -229,15 +232,13 @@ export default createServer(async (req, res) => {
   }
 })
   .on('listening', () => {
-    if (process.env.NODE_ENV !== 'test') {
-      console.log(`Сервер Students запущен. Вы можете использовать его по адресу http://localhost:${PORT}`);
-      console.log('Нажмите CTRL+C, чтобы остановить сервер');
-      console.log('Доступные методы:');
-      console.log(`GET ${URI_PREFIX} - получить список студентов, в query параметр search можно передать поисковый запрос`);
-      console.log(`POST ${URI_PREFIX} - создать студента, в теле запроса нужно передать объект { name: string, surname: string, lastname: string, birthday: string, studyStart: string, faculty: string}`);
-      console.log(`GET ${URI_PREFIX}/{id} - получить студента по его ID`);
-      console.log(`PATCH ${URI_PREFIX}/{id} - изменить студента с ID, в теле запроса нужно передать объект { name?: string, surname?: string, lastname?: string, birthday?: string, studyStart?: string, faculty?: string}`);
-      console.log(`DELETE ${URI_PREFIX}/{id} - удалить студента по ID`);
-    }
+    console.log(`Сервер Students запущен. Вы можете использовать его по адресу http://localhost:${PORT}`);
+    console.log('Нажмите CTRL+C, чтобы остановить сервер');
+    console.log('Доступные методы:');
+    console.log(`GET ${URI_PREFIX} - получить список студентов, в query параметр search можно передать поисковый запрос`);
+    console.log(`POST ${URI_PREFIX} - создать студента, в теле запроса нужно передать объект { name: string, surname: string, lastname: string, birthday: string, studyStart: string, faculty: string}`);
+    console.log(`GET ${URI_PREFIX}/{id} - получить студента по его ID`);
+    console.log(`PATCH ${URI_PREFIX}/{id} - изменить студента с ID, в теле запроса нужно передать объект { name?: string, surname?: string, lastname?: string, birthday?: string, studyStart?: string, faculty?: string}`);
+    console.log(`DELETE ${URI_PREFIX}/{id} - удалить студента по ID`);
   })
   .listen(PORT);
